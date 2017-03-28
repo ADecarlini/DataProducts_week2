@@ -1,0 +1,28 @@
+---
+title: "March 28, 2017"
+author: "TTa"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("leaflet")
+```
+
+## Places that I would like to visit in 2017
+
+
+```{r mapplot }
+descriptionofplaces <- c("<a>niagara falls (no link)</a>",
+                         "<a href='http://es.wikipedia.org/wiki/Canc%C3%BAn'>Cancun (with link)</a>") 
+ 
+locationofplaces <- data.frame(
+                    lat=c(43.0448,21.0938),
+                    lng=c(-79.0416,-86.5051)
+                  )
+mymap <- locationofplaces %>%
+         leaflet() %>%
+         addTiles() %>%
+         addMarkers(popup=descriptionofplaces)
+mymap  
+``` 
